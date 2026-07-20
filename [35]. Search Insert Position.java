@@ -1,17 +1,18 @@
 class Solution {
-    public int searchInsert(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                return mid;
-            } else if (nums[mid] < target) {
-                left = mid + 1; 
-            } else {
-                right = mid - 1; 
+    public boolean judgeCircle(String moves) {
+        int x = 0;
+        int y = 0;
+        for (char move : moves.toCharArray()) {
+            if (move == 'U') {
+                y++;
+            } else if (move == 'D') {
+                y--;
+            } else if (move == 'R') {
+                x++;
+            } else if (move == 'L') {
+                x--;
             }
         }
-        return left;
+        return x == 0 && y == 0;
     }
 }
