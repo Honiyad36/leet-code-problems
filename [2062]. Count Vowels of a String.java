@@ -1,15 +1,26 @@
+import java.util.HashSet;
+import java.util.Set;
+
 class Solution {
     public int countVowelSubstrings(String word) {
         int count = 0;
-        for(int i = 0; i<word.length(); i++){
-            String sub = "";              
-            for(int j = i; j<word.length(); j++){
-                char ch = word.charAt(j);           
-                    break;           
-                sub +=ch;                                        
-                if(sub.contains("a")&&sub.contains("e")&&sub.contains("i")&&sub.contains("o")&&sub.contains("u")){count++;}
-            }                 
+        int n = word.length();
+        for (int i = 0; i < n; i++) {
+            Set<Character> vowels = new HashSet<>();
+            for (int j = i; j < n; j++) {
+                char ch = word.charAt(j);
+                if (!isVowel(ch)) {
+                    break;
+                }
+                vowels.add(ch);
+                if (vowels.size() == 5) {
+                    count++;
+                }
+            }
         }
         return count;
+    }
+    private boolean isVowel(char ch) {
+        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
     }
 }
