@@ -18,12 +18,10 @@ class Solution {
             count[hundreds]++;
             count[tens]++;
             count[ones]++;
-            
          }
         int[] result = new int[resultList.size()];
         for(int k =0; k < resultList.size(); k++){
             result[k] = resultList.get(k);
-        
         }
         return result;
     }
