@@ -1,0 +1,21 @@
+import java.util.HashMap;
+import java.util.Map;
+class Solution {
+    public String reformatDate(String date) {
+        String[] parts = date.split(" ");
+        Map<String, String> months = new HashMap<>() {{
+            put("Jan", "01"); put("Feb", "02"); put("Mar", "03");
+            put("Apr", "04"); put("May", "05"); put("Jun", "06");
+            put("Jul", "07"); put("Aug", "08"); put("Sep", "09");
+            put("Oct", "10"); put("Nov", "11"); put("Dec", "12");
+        }};
+        String dayStr = parts[0];
+        String monthStr = parts[1];
+        String yearStr = parts[2];
+        String dayNum = dayStr.substring(0, dayStr.length() - 2);
+        if (dayNum.length() == 1) {
+            dayNum = "0" + dayNum;
+        }
+        return yearStr + "-" + months.get(monthStr) + "-" + dayNum;
+    }
+}
